@@ -13,6 +13,7 @@ namespace RegexUserRegistration
         public static string regex_lastName = "^[A-Z]{1}[a-z]{2,}$";
         public static string regex_email = "^[a-z0-9]+(.[a-z0-9]+)?@[a-z]+[.][a-z]{2,3}(.[a-z]{2})?$";
         public static string regex_mobileNumber = "^[1-9][0-9]{1,2}[ ][0-9]{10}";
+        public static string regex_password = "[a-zA-Z0-9]{8,}";
 
         public void ValidateFirstName(string firstName)
         {
@@ -56,6 +57,17 @@ namespace RegexUserRegistration
             else
             {
                 Console.WriteLine("Hint : Country code followed by space and 10 digit mobile number");
+            }
+        }
+        public void ValidatePassword(string password)
+        {
+            if (Regex.IsMatch(password, regex_password).Equals(true))
+            {
+                Console.WriteLine("Validation successfull..");
+            }
+            else
+            {
+                Console.WriteLine("Rule1 : Minimum 8 characters");
             }
         }
     }

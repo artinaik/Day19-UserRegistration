@@ -24,6 +24,9 @@ namespace RegexUserRegistration
             Console.WriteLine("Enter Mobile Number");
             string mobile = Console.ReadLine();
             registrationPattern.ValidateMobileNumber(mobile);
+            Console.WriteLine("Create Password");
+            string password = Console.ReadLine();
+            registrationPattern.ValidatePassword(password);
             Console.ReadKey();
         }
     }
