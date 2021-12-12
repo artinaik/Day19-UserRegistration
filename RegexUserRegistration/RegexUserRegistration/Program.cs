@@ -11,6 +11,10 @@ namespace RegexUserRegistration
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to User registration using Regex");
+            RegistrationPattern registrationPattern = new RegistrationPattern();
+            Console.WriteLine("Enter First Name");
+            string firstName = Console.ReadLine();
+            registrationPattern.ValidateFirstName(firstName);
             Console.ReadKey();
         }
     }
