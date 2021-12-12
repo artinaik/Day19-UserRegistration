@@ -21,6 +21,9 @@ namespace RegexUserRegistration
             Console.WriteLine("Enter Email");
             string email = Console.ReadLine();
             registrationPattern.ValidateEmail(email);
+            Console.WriteLine("Enter Mobile Number");
+            string mobile = Console.ReadLine();
+            registrationPattern.ValidateMobileNumber(mobile);
             Console.ReadKey();
         }
     }
