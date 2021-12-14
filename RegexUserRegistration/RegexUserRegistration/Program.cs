@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RegexUserRegistration
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -14,19 +14,19 @@ namespace RegexUserRegistration
             RegistrationPattern registrationPattern = new RegistrationPattern();
             Console.WriteLine("Enter First Name");
             string firstName = Console.ReadLine();
-            registrationPattern.ValidateFirstName(firstName);
+            Console.WriteLine(registrationPattern.ValidateFirstName(firstName));
             Console.WriteLine("Enter Last Name");
             string lastName = Console.ReadLine();
-            registrationPattern.ValidateFirstName(lastName);
+            Console.WriteLine(registrationPattern.ValidateFirstName(lastName));
             Console.WriteLine("Enter Email");
             string email = Console.ReadLine();
-            registrationPattern.ValidateEmail(email);
+            Console.WriteLine(registrationPattern.ValidateEmail(email));
             Console.WriteLine("Enter Mobile Number");
             string mobile = Console.ReadLine();
-            registrationPattern.ValidateMobileNumber(mobile);
+            Console.WriteLine(registrationPattern.ValidateMobileNumber(mobile));
             Console.WriteLine("Create Password");
             string password = Console.ReadLine();
-            registrationPattern.ValidatePassword(password);
+            Console.WriteLine(registrationPattern.ValidatePassword(password));
             Console.ReadKey();
         }
     }
