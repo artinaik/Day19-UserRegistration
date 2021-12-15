@@ -14,6 +14,18 @@ namespace UserRegistrationTest
             var result = registrationPattern.ValidateFirstName("Arati");
             Assert.AreEqual("validation successfull", result); 
         }
+        [TestMethod]
+        public void TestFirstNameException()
+        {
+            try
+            {
+                var result = registrationPattern.ValidateFirstName("");
+            }
+            catch(RegistrationCustomExceptions ex)
+            {
+                Assert.AreEqual("FirstName Should not be null",ex.Message);
+            }
+        }
 
         [TestMethod]
         public void TestLastName()

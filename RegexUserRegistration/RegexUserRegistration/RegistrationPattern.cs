@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RegexUserRegistration
 {
+
     public class RegistrationPattern
     {
         string msg = "";
@@ -17,61 +18,118 @@ namespace RegexUserRegistration
         public  string regex_password = "^(?=.*[A-Z])(?=.*[0-9])(?=.+[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$";
         public string ValidateFirstName(string firstName)
         {
-            if(Regex.IsMatch(firstName, regex_firstName).Equals(true))
+            try
             {
-                msg="validation successfull";
+                if (firstName.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "FirstName Should not be null");
+                }
+                if (Regex.IsMatch(firstName, regex_firstName).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "FirstName Should Starts with caps and and have minimum three characters");                   ;
+                }
             }
-            else
+            catch(RegistrationCustomExceptions ex)
             {
-                msg="Invalid FirstName";
+                Console.WriteLine("Exception : "+ex.Message);
             }
+           
             return msg;
         }
         public string ValidateLastName(string lastName)
         {
-            if (Regex.IsMatch(lastName, regex_lastName).Equals(true))
+            try
             {
-                msg = "validation successfull";
+                if (lastName.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "LastName Should not be null");
+                }
+                if (Regex.IsMatch(lastName, regex_lastName).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "LastName Should Starts with caps and and have minimum three characters"); ;
+                }
             }
-            else
+            catch(RegistrationCustomExceptions ex)
             {
-                msg = "Invalid LastName";
+                Console.WriteLine("Exception : "+ex.Message);
             }
             return msg;
         }
         public string ValidateEmail(string email)
         {
-            if (Regex.IsMatch(email, regex_email).Equals(true))
-            { 
-                msg = "validation successfull";
-            }
-            else
+            try
             {
-                msg = "Invalid Email";
+                if (email.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "Email Should not be null");
+                }
+                if (Regex.IsMatch(email, regex_email).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Email is Invalid"); ;
+                }
+            }
+            catch(RegistrationCustomExceptions ex)
+            {
+                Console.WriteLine("Exception : "+ex.Message);
             }
                 return msg;
         }
         public string ValidateMobileNumber(string mobile)
         {
-            if (Regex.IsMatch(mobile, regex_mobileNumber).Equals(true))
+            try
             {
-                msg = "validation successfull";
+                if (mobile.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "Mobile number Should not be null");
+                }
+                if (Regex.IsMatch(mobile, regex_mobileNumber).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Mobile number should start with country code and have space between code and 10 digit mobile number"); ;
+                }
             }
-            else
+            catch(RegistrationCustomExceptions ex)
             {
-                msg = "Invalid Mobile Number";
+                Console.WriteLine("Exception : "+ex.Message);
             }
             return msg;
         }
         public string ValidatePassword(string password)
         {
-            if (Regex.IsMatch(password, regex_password).Equals(true))
+            try
             {
-                msg = "validation successfull";
+                if (password.Equals(""))
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.NOT_NULL, "Password Should not be null");
+                }
+                if (Regex.IsMatch(password, regex_password).Equals(true))
+                {
+                    msg = "validation successfull";
+                }
+                else
+                {
+                    throw new RegistrationCustomExceptions(RegistrationCustomExceptions.ExceptionType.INVALID_FIRSTNAME, "Rule1 : Minimum 8 characters\nRule2 : Sould have atleast 1 capital letter \nRule3 : Should have atleast 1 digit" +
+                    "\nRule4 : Should have exact 1 special character");
+                }
             }
-            else
+            catch(RegistrationCustomExceptions ex)
             {
-                msg = "Invalid Password";
+                Console.WriteLine("Exception : "+ex.Message);
             }
             return msg;
         }
