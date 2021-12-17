@@ -7,9 +7,28 @@ using System.Threading.Tasks;
 
 namespace RegexUserRegistration
 {
-
     public class RegistrationPattern
     {
+        public static void TakeUserInputs()
+        {
+            Console.WriteLine("Welcome to User registration using Regex");
+            RegistrationPattern registrationPattern = new RegistrationPattern();
+            Console.WriteLine("Enter First Name");
+            string firstName = Console.ReadLine();
+            Console.WriteLine(registrationPattern.ValidateFirstName(firstName));
+            Console.WriteLine("Enter Last Name");
+            string lastName = Console.ReadLine();
+            Console.WriteLine(registrationPattern.ValidateFirstName(lastName));
+            Console.WriteLine("Enter Email");
+            string email = Console.ReadLine();
+            Console.WriteLine(registrationPattern.ValidateEmail(email));
+            Console.WriteLine("Enter Mobile Number");
+            string mobile = Console.ReadLine();
+            Console.WriteLine(registrationPattern.ValidateMobileNumber(mobile));
+            Console.WriteLine("Create Password");
+            string password = Console.ReadLine();
+            Console.WriteLine(registrationPattern.ValidatePassword(password));
+        }
         string msg = "";
         public  string regex_firstName = "^[A-Z]{1}[a-z]{2,}$";
         public  string regex_lastName = "^[A-Z]{1}[a-z]{2,}$";
